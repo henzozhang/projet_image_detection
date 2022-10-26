@@ -17,6 +17,7 @@ CLIENT_SECRET = os.getenv('CLIENT_SECRET')
 
 
 
+
 def api(request):
         url_api="https://api.everypixel.com/v1/faces"
 
@@ -34,3 +35,5 @@ def api(request):
         else :
             form = forms.ApiForm()
         return render(request, 'api_app/formulaire.html', context = {'form' : form})
+
+

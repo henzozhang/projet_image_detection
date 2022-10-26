@@ -1,6 +1,6 @@
 from django import forms
 from . import models
-from django.forms import CheckboxSelectMultiple
+
 
 class ApiForm(forms.ModelForm):
     class Meta:

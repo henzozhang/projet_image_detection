@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'visage',
     'api_app',
     'signup',
     'django.contrib.admin',
