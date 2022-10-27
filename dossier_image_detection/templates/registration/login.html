@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
+
 
 {% block content %}
 
@@ -15,19 +17,45 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>{% load crispy_forms_tags %}
-<input type="hidden" name="next" value="{{ next }}">
-</form>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+                <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 
-{# Assumes you set up the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                            <form method="post" action="{% url 'login' %}">           
+                                {% csrf_token %}
+                                <div class="form-outline mb-4">
+                                    {{ form.username.label_tag }}
+                                    {{ form.username }}
+                                </div>
 
+                                <!-- Password input -->
+                                <div class="form-outline mb-3">
+                                    {{ form.password.label_tag }}
+                                    {{ form.password }}
+                                </div>
+
+                                <div class="d-flex justify-content-between align-items-center">
+
+                                <a href="#!" class="text-body">Mot de passe oublié?</a>
+                                </div>
+
+                                <div class="text-center text-lg-start mt-4 pt-2">
+                                    <input type="submit" value="Se connecter"  class="btn btn-primary btn-lg"
+                                    style="padding-left: 2.5rem; padding-right: 2.5rem;">
+                                    <input type="hidden" name="next" value="{{ next }}">
+                                <p class="small fw-bold mt-2 pt-1 mb-0">Vous n'avez pas encore de compte? <a href="{% url 'signup:sign_up' %}"
+                                    class="link-danger">Inscrivez-vous maintenant!</a></p>
+                                </div>
+
+                            </form>
+                </div>
+        </div>
+    </div>    
+</section>                  
 {% endblock %}
+

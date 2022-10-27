@@ -11,10 +11,16 @@
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary"><i class="bi bi-house"></i></a></li>
-        <li><a href="{% url 'home' %}" class="nav-link px-2 link-dark">Home</a></li>
+        <li><a href="{% url 'home' %}" class="nav-link px-2 link-dark" >Home</a></li>
         <li><a href="{% url 'api_app:api_app' %}" class="nav-link px-2 link-dark">Services</a></li>
         <li><a href="{% url 'login' %}" class="nav-link px-2 link-dark">Se connecter</a></li>
         <li><a href="{% url 'signup:sign_up' %}" class="nav-link px-2 link-dark">S'inscrire</a></li>
+        {% if  user.is_authenticated%}
+        <span class="navbar-text"> logged as : {{user.get_username}}</span>
+        <a class="btn btn-sm btn-outline-secondary" href="{%url 'logout'%}?next={{request.path}}"> Log out </a> 
+        {% else %}
+        <span class='navbar-text'> You are not logged  </span>
+      {% endif %}
       </ul> 
 
     </header>
