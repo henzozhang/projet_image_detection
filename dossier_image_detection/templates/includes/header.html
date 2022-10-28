@@ -11,10 +11,10 @@
       <a>
         {% if  user.is_authenticated%}
         {% comment %} Afficher l'information qui permet de voir si vous êtes login ou non (dans votre barre de navigation par exemple) {% endcomment %}
-        <span class="navbar-text"> bonjour: {{user.get_username}}</span>
+        <span class="navbar-text"> Bonjour {{user.get_username|title}}</span>
         {% comment %} Revenir sur la page d'acceuil lors du logout. {% endcomment %}
         {% else %}
-        <span class='navbar-text'> You are not logged  </span>
+        <span class='navbar-text'> You are not logged in </span>
         {% endif %}
       </a>
 
@@ -34,7 +34,7 @@
       {% if  user.is_authenticated%}
             {% comment %} Afficher l'information qui permet de voir si vous êtes login ou non (dans votre barre de navigation par exemple) {% endcomment %}
             
-            <a class="btn btn-sm btn-outline-secondary" href="{%url 'logout'%}?next={{request.path}}"> 
+            <a class="btn btn-primary" href="{%url 'logout'%}?next={{request.path}}"> 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                 <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                 <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
