@@ -9,7 +9,7 @@
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">S'inscrire</p>
-          <form method="post" action="{% url 'signup:sign_up' %}>         
+          <form method="post" action="{% url 'signup:sign_up' %}">         
             {% csrf_token %}
             {% comment %} <div class="form-outline mb-4">
                 <label class="form-label" for="{{form.username.id_for_label}}">Username</label>

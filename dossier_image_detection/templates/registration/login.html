@@ -4,17 +4,6 @@
 
 {% block content %}
 
-
-
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
 <section class="vh-100">
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -27,6 +16,17 @@
                 <form method="post" action="{% url 'login' %}">         
 
                     {% csrf_token %}
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                        <p class="text-danger">Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</p>
+                        {% else %}
+                        <p class="text-danger">Please login to see this page.</p>
+                        {% endif %}
+                    {% endif %}
+
+
                     <div class="form-outline mb-4">
                         <label class="form-label" for="{{form.username.id_for_label}}">Utilisateur</label>
                         {{ form.username|add_class:"form-control form-control-lg" }}      
@@ -47,7 +47,7 @@
                     </div> {% endcomment %}
 
                     {% if form.errors %}
-                    <p class="link-danger">Your username and password didn't match. Please try again.</p>
+                    <p class="text-danger">Your username and password didn't match. Please try again.</p>
                     {% endif %}
 
                     <div class="text-center text-lg-start mt-4 pt-2">
