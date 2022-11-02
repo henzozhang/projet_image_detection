@@ -41,3 +41,4 @@ def api(request):
     else :
         form = forms.ApiForm()
     return render(request, 'api_app/formulaire.html', context = {'form' : form})
+    print(CLIENT_SECRET)
