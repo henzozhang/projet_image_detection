@@ -19,10 +19,10 @@
 
                     {% if next %}
                         {% if user.is_authenticated %}
-                        <p class="text-danger">Your account doesn't have access to this page. To proceed,
-                        please login with an account that has access.</p>
+                        <p class="text-danger">Votre compte n'a pas accès à cette page. Pour procéder,
+                            veuillez vous connecter avec un compte qui a accès.</p>
                         {% else %}
-                        <p class="text-danger">Please login to see this page.</p>
+                        <p class="text-danger">Veuillez vous connecter pour voir cette page.</p>
                         {% endif %}
                     {% endif %}
 
@@ -47,7 +47,7 @@
                     </div> {% endcomment %}
 
                     {% if form.errors %}
-                    <p class="text-danger">Your username and password didn't match. Please try again.</p>
+                    <p class="text-danger">Votre nom d'utilisateur et votre mot de passe ne correspondent pas. Veuillez réessayer.</p>
                     {% endif %}
 
                     <div class="text-center text-lg-start mt-4 pt-2">
